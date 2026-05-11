@@ -90,6 +90,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -260,7 +262,7 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
-  { 'NMAC427/guess-indent.nvim', opts = {} },
+  -- { 'NMAC427/guess-indent.nvim', opts = {} },
 
   -- Alternatively, use `config = function() ... end` for full control over the configuration.
   -- If you prefer to call `setup` explicitly, use:
@@ -911,10 +913,10 @@ require('lazy').setup({
 
         -- check if treesitter indentation is available for this language, and if so enable it
         -- in case there is no indent query, the indentexpr will fallback to the vim's built in one
-        local has_indent_query = vim.treesitter.query.get(language, 'indents') ~= nil
+        -- local has_indent_query = vim.treesitter.query.get(language, 'indents') ~= nil
 
         -- enables treesitter based indentation
-        if has_indent_query then vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" end
+        -- if has_indent_query then vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" end
       end
 
       local available_parsers = require('nvim-treesitter').get_available()
